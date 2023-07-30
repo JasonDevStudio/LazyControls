@@ -1,0 +1,51 @@
+﻿<Window xmlns:Controls="clr-namespace:YMS.Controls"  xmlns:hc="https://handyorg.github.io/handycontrol"  x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1300" Width="800">
+    <StackPanel Margin="10">
+        <Controls:LazyListBox LazyDataSource="{Binding Items}" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="100" Width="300" SearchText="99" FirstLoadCount="30"/>
+        
+        <Controls:LazyComboBox x:Name="MyLazyComboBox"
+                               LazyDataSource="{Binding Items}"
+                               SearchText="99"
+                               FirstLoadCount="30"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Top" />
+
+        <Controls:LazyItemsControl x:Name="LazyControl" LazyDataSource="{Binding Items}"
+                           SearchText="99"
+                           FirstLoadCount="20">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.Template>
+                <ControlTemplate>
+                    <ScrollViewer Height="100" VerticalScrollBarVisibility="Auto">
+                        <ItemsPresenter />
+                    </ScrollViewer>
+                </ControlTemplate>
+            </ItemsControl.Template>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </Controls:LazyItemsControl>
+        <ListBox Controls:Lazy.LazyDataSource="{Binding Items}"
+                 Controls:Lazy.SearchText="88"
+                 Controls:Lazy.FirstLoadCount="50"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto" Height="100" Width="300">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
+</Window>
