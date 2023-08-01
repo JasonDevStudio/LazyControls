@@ -8,7 +8,18 @@
         Title="MainWindow" Height="1300" Width="800">
     <StackPanel Margin="10">
         <Controls:LazyListBox LazyDataSource="{Binding Items}" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="100" Width="300" SearchText="99" FirstLoadCount="30"/>
-        
+
+        <Controls:LazyCheckComboBox x:Name="MyLazyCheckComboBox"
+                               LazyDataSource="{Binding Items}"
+                               SearchText="33"
+                               FirstLoadCount="10"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Top" 
+                               IsDropDownOpen="False" 
+                               Style="{StaticResource CheckComboBoxPlus}" 
+                               Width="200"
+                               Height="100"/>
+
         <Controls:LazyComboBox x:Name="MyLazyComboBox"
                                LazyDataSource="{Binding Items}"
                                SearchText="99"
