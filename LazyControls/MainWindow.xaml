@@ -27,8 +27,7 @@
                                HorizontalAlignment="Left"
                                VerticalAlignment="Top" />
 
-        <Controls:LazyItemsControl x:Name="LazyControl" LazyDataSource="{Binding Items}"
-                           SearchText="99"
+        <Controls:LazyItemsControl x:Name="LazyControl" LazyDataSource="{Binding Items}" 
                            FirstLoadCount="20">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
